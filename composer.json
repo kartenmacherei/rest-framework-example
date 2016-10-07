@@ -1,0 +1,10 @@
+{
+	"autoload": {
+		"psr-4": {
+			"Kartenmacherei\\ExampleService\\": "src"
+		}
+	},
+	"require": {
+		"kartenmacherei/rest-framework": "dev-master"
+	}
+}

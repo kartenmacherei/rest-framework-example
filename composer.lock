@@ -1,0 +1,55 @@
+{
+    "_readme": [
+        "This file locks the dependencies of your project to a known state",
+        "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
+        "This file is @generated automatically"
+    ],
+    "hash": "ab2d0bdce83d01268aecd537af902ede",
+    "content-hash": "b3481b1f1000bc0c34d59c59804ddb0a",
+    "packages": [
+        {
+            "name": "kartenmacherei/rest-framework",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kartenmacherei/rest-framework.git",
+                "reference": "294f47bc2b3ef950dab1bf7865f4a9a70716b474"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kartenmacherei/rest-framework/zipball/294f47bc2b3ef950dab1bf7865f4a9a70716b474",
+                "reference": "294f47bc2b3ef950dab1bf7865f4a9a70716b474",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "Kartenmacherei\\RestFramework\\": "src"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "description": "Micro framework for creating RESTful webservices",
+            "homepage": "https://bitbucket.org/kartenmacherei/rest-framework",
+            "keywords": [
+                "framework",
+                "kartenmacherei",
+                "rest",
+                "restful"
+            ],
+            "time": "2016-10-07 08:47:06"
+        }
+    ],
+    "packages-dev": [],
+    "aliases": [],
+    "minimum-stability": "stable",
+    "stability-flags": {
+        "kartenmacherei/rest-framework": 20
+    },
+    "prefer-stable": false,
+    "prefer-lowest": false,
+    "platform": [],
+    "platform-dev": []
+}
