@@ -2,6 +2,7 @@
 namespace Kartenmacherei\ExampleService\RestResource\BasketCollection;
 
 use Kartenmacherei\RestFramework\Request\Request;
+use Kartenmacherei\RestFramework\Request\Uri;
 use Kartenmacherei\RestFramework\ResourceRequest\ResourceRequest;
 use Kartenmacherei\RestFramework\Router\AbstractResourceRouter;
 
@@ -9,7 +10,7 @@ class BasketCollectionResourceRouter extends AbstractResourceRouter
 {
     protected function canRoute(Request $request): bool
     {
-        return $request->getUri()->asString() == '/baskets';
+        return $request->getUri()->equals(new Uri('/baskets'));
     }
 
     /**
