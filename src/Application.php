@@ -1,15 +1,9 @@
 <?php
 namespace Kartenmacherei\ExampleService;
 
-use Kartenmacherei\ExampleService\RestResource\Basket\BasketQueryLocator;
-use Kartenmacherei\ExampleService\RestResource\Basket\BasketResourceRouter;
-use Kartenmacherei\ExampleService\RestResource\BasketCollection\BasketCollectionCommandLocator;
-use Kartenmacherei\ExampleService\RestResource\BasketCollection\BasketCollectionResourceRouter;
 use Kartenmacherei\RestFramework\Framework;
-use Kartenmacherei\RestFramework\RestResource\ReadOnlyRestResource;
 use Kartenmacherei\RestFramework\Request\Request;
 use Kartenmacherei\RestFramework\Response\Response;
-use Kartenmacherei\RestFramework\RestResource\WriteOnlyRestResource;
 
 class Application
 {
@@ -19,9 +13,11 @@ class Application
      */
     public function run(Request $request)
     {
+        $factory = new Factory($request);
+
         $framework = Framework::createInstance();
-        $framework->registerResource(new ReadOnlyRestResource(new BasketResourceRouter(), new BasketQueryLocator()));
-        $framework->registerResource(new WriteOnlyRestResource(new BasketCollectionResourceRouter(), new BasketCollectionCommandLocator()));
+        $framework->registerResourceRouter($factory->createBasketResourceRouter());
+        $framework->registerResourceRouter($factory->createBasketCollectionResourceRouter());
         return $framework->run($request);
     }
 }

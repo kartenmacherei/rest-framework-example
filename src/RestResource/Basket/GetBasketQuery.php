@@ -1,24 +1,24 @@
 <?php
 namespace Kartenmacherei\ExampleService\RestResource\Basket;
 
+use Kartenmacherei\RestFramework\Action\Query;
 use Kartenmacherei\RestFramework\Response\ContentResponse;
 use Kartenmacherei\RestFramework\Response\Content\JsonContent;
-use Kartenmacherei\RestFramework\Action\Query\Query;
 use Kartenmacherei\RestFramework\Response\Response;
 
 class GetBasketQuery implements Query
 {
     /**
-     * @var BasketResourceRequest
+     * @var GetBasketQueryParameters
      */
-    private $resourceRequest;
+    private $parameters;
 
     /**
-     * @param BasketResourceRequest $resourceRequest
+     * @param GetBasketQueryParameters $parameters
      */
-    public function __construct(BasketResourceRequest $resourceRequest)
+    public function __construct(GetBasketQueryParameters $parameters)
     {
-        $this->resourceRequest = $resourceRequest;
+        $this->parameters = $parameters;
     }
 
     /**
@@ -29,7 +29,7 @@ class GetBasketQuery implements Query
         return new ContentResponse(
             new JsonContent(
                 [
-                    'id' => $this->resourceRequest->getBasketIdentifier(),
+                    'id' => $this->parameters->getBasketIdentifier()->asString(),
                     'items' => []
                 ]
             )

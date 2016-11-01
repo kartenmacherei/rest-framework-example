@@ -1,13 +1,26 @@
 <?php
 namespace Kartenmacherei\ExampleService\RestResource\Basket;
 
-use Kartenmacherei\RestFramework\ResourceRequest\ResourceRequest;
+use Kartenmacherei\RestFramework\RestResource\RestResource;
 use Kartenmacherei\RestFramework\Router\AbstractResourceRouter;
 use Kartenmacherei\RestFramework\Request\Pattern;
 use Kartenmacherei\RestFramework\Request\Request;
 
 class BasketResourceRouter extends AbstractResourceRouter
 {
+    /**
+     * @var BasketResourceFactory
+     */
+    private $resourceFactory;
+
+    /**
+     * @param BasketResourceFactory $resourceFactory
+     */
+    public function __construct(BasketResourceFactory $resourceFactory)
+    {
+        parent::__construct(null);
+        $this->resourceFactory = $resourceFactory;
+    }
 
     /**
      * @param Request $request
@@ -20,11 +33,11 @@ class BasketResourceRouter extends AbstractResourceRouter
 
     /**
      * @param Request $request
-     * @return ResourceRequest
+     * @return RestResource
      */
-    protected function doRoute(Request $request): ResourceRequest
+    protected function doRoute(Request $request): RestResource
     {
-        return new BasketResourceRequest($request->getMethod(), $request->getUri(), $request->getBody());
+        return $this->resourceFactory->createBasketResource();
     }
 
 }

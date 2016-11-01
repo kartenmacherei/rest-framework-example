@@ -2,20 +2,23 @@
 namespace Kartenmacherei\ExampleService\RestResource\Basket;
 
 use Kartenmacherei\ExampleService\Domain\BasketIdentifier;
+use Kartenmacherei\RestFramework\Request\Uri;
 use Kartenmacherei\RestFramework\Request\UriException;
-use Kartenmacherei\RestFramework\ResourceRequest\AbstractResourceRequest;
-use Kartenmacherei\RestFramework\Request\Method\GetRequestMethod;
-use Kartenmacherei\RestFramework\Request\Method\AbstractRequestMethod;
 use Kartenmacherei\RestFramework\ResourceRequest\BadRequestException;
 
-class BasketResourceRequest extends AbstractResourceRequest
+class GetBasketQueryParameters
 {
     /**
-     * @return AbstractRequestMethod[]
+     * @var Uri
      */
-    public function getSupportedMethods(): array
+    private $uri;
+
+    /**
+     * @param Uri $uri
+     */
+    public function __construct(Uri $uri)
     {
-        return [new GetRequestMethod()];
+        $this->uri = $uri;
     }
 
     /**
@@ -25,7 +28,7 @@ class BasketResourceRequest extends AbstractResourceRequest
     public function getBasketIdentifier()
     {
         try {
-            return new BasketIdentifier($this->getUri()->getPathSegment(1));
+            return new BasketIdentifier($this->uri->getPathSegment(1));
         } catch (UriException $e) {
             throw new BadRequestException();
         }
