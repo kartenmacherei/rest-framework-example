@@ -13,13 +13,16 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/kartenmacherei/rest-framework.git",
-                "reference": "e559774fdfbf2b22f461f2050ac0127b87b8746c"
+                "reference": "d1b5d68d30941b8a90c47feaa7409c2c40605306"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/kartenmacherei/rest-framework/zipball/e559774fdfbf2b22f461f2050ac0127b87b8746c",
-                "reference": "e559774fdfbf2b22f461f2050ac0127b87b8746c",
+                "url": "https://api.github.com/repos/kartenmacherei/rest-framework/zipball/d1b5d68d30941b8a90c47feaa7409c2c40605306",
+                "reference": "d1b5d68d30941b8a90c47feaa7409c2c40605306",
                 "shasum": ""
+            },
+            "require": {
+                "php": ">=7.0.0"
             },
             "type": "library",
             "autoload": {
@@ -39,7 +42,7 @@
                 "rest",
                 "restful"
             ],
-            "time": "2016-10-07 09:42:39"
+            "time": "2016-11-01 11:09:24"
         }
     ],
     "packages-dev": [],
