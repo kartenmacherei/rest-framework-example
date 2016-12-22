@@ -5,6 +5,6 @@
 		}
 	},
 	"require": {
-		"kartenmacherei/rest-framework": "dev-master"
+		"kartenmacherei/rest-framework": "^1.0"
 	}
 }
